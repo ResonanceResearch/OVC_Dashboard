@@ -1,30 +1,102 @@
-Name,Email,Level,RG1,Category,Appointment,OpenAlexID,OpenAlexID_2,H_index,I10_index,Works_count,Total_citations
-Janet Hill,janet.hill@usask.ca,Professor,,Vet Micro,Full-time,A5022032110,,54.0,137.0,267.0,8253.0
-Kristen Conn,klc366@mail.usask.ca,Assistant,,Vet Micro,Full-time,A5024161948,,11.0,12.0,17.0,490.0
-John Ellis,john.ellis@usask.ca,Professor,,Vet Micro,Full-time,A5007566988,,73.0,288.0,503.0,19186.0
-Volker Gerdts,volker.gerdts@usask.ca,Professor,,Vet Micro,Full-time,A5054537882,,43.0,125.0,204.0,6394.0
-Emily Jenkins,emily.jenkins@usask.ca,Professor,,Vet Micro,Full-time,A5075278671,,39.0,102.0,176.0,5463.0
-Joseph Rubin,joseph.rubin@usask.ca,Professor,,Vet Micro,Full-time,A5032938268,,24.0,44.0,79.0,1889.0
-Tony Ruzzini,acr753@mail.usask.ca,Associate,,Vet Micro,Full-time,A5016372093,,16.0,22.0,37.0,769.0
-Maarten Voordouw,maarten.voordouw@usask.ca,Associate,,Vet Micro,Full-time,A5026690931,,26.0,52.0,95.0,1726.0
-Arinjay Banerjee,arinjay.banerjee@usask.ca,Adjunct,,Vet Micro,Adjunct,A5050567215,,23.0,44.0,102.0,2796.0
-Jeffrey Chen,jeffrey.chen@usask.ca,Adjunct,,Vet Micro,Adjunct,a5000375230,,18.0,20.0,30.0,1368.0
-Antonio Facciuolo,antonio.facciuolo@usask.ca,Adjunct,,Vet Micro,Adjunct,A5088785492,,9.0,7.0,27.0,210.0
-Darryl Falzarano,darryl.falzarano@usask.ca,Adjunct,,Vet Micro,Adjunct,A5041967571,,38.0,62.0,132.0,9212.0
-Kazal Ghosh,kazal.ghosh@usask.ca,Adjunct,,Vet Micro,Adjunct,A5073467123,,2.0,1.0,9.0,17.0
-Uladzimir Karniychuk,karniychuk.1@osu.edu,Adjunct,,Vet Micro,Adjunct,a5012825986,,18.0,24.0,62.0,1145.0
-Wolfgang Koester,wolfgang.koester@usask.ca,Adjunct,,Vet Micro,Adjunct,a5053166362,,29.0,46.0,67.0,2833.0
-Qiang Liu,qiang.liu@usask.ca,Adjunct,,Vet Micro,Adjunct,A5100409525,,25.0,40.0,97.0,2320.0
-Musangu Ngeleka,musangu.ngeleka@usask.ca,Adjunct,,Vet Micro,Adjunct,a5018933207,,19.0,26.0,42.0,999.0
-Jose Perez-casal,jose.perez-casal@usask.ca,Adjunct,,Vet Micro,Adjunct,a5075533328,,27.0,51.0,74.0,2585.0
-Camila Queiroz,camila.queiroz@inspection.gc.ca,Adjunct,,Vet Micro,Adjunct,a5061580720,,3.0,3.0,7.0,228.0
-Loki Snyman,lokisnyman@gmail.com,Adjunct,,Vet Micro,Adjunct,a5095017105,,0.0,0.0,1.0,0.0
-Heather Wilson,heather.wilson@usask.ca,Adjunct,,Vet Micro,Adjunct,A5002970194,,31.0,90.0,173.0,3706.0
-Yan Zhou,yan.zhou@usask.ca,Adjunct,,Vet Micro,Adjunct,A5032015135,,32.0,67.0,121.0,3401.0
-Suresh Tikoo,suresh.tik@usask.ca,Associate,,Vet Micro,Associate,A5028351806,,36.0,103.0,181.0,4556.0
-Manuel Chirino,manuel.chirino@usask.ca,Professor,,Vet Micro,Emeriti,a5073090598,,22.0,42.0,68.0,1939.0
-Debbie Haines,debbie.haines@usask.ca,Professor,,Vet Micro,Emeriti,a5070489863,,48.0,148.0,213.0,9084.0
-Vikram Misra,vikram.misra@usask.ca,Professor,,Vet Micro,Emeriti,A5018540324,,42.0,99.0,156.0,5787.0
-Lydden Polley,lydden.polley@usask.ca,Professor,,Vet Micro,Emeriti,a5070489863,,48.0,148.0,213.0,9084.0
-Andrew Potter,andrew.potter@usask.ca,Professor,,Vet Micro,Emeriti,a5035086403,,47.0,172.0,245.0,7742.0
-Henry Tabel,henry.tabel@usask.ca,Professor,,Vet Micro,Emeriti,,,,,,
+Name,Email,Level,RG1,RG2,RG3,RG4,RG5,RG6,Category,Appointment,OpenAlexID,H_index,I10_index,Works_count,Total_citations
+Aaron Gruber,aaron.gruber@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,Precision Biodiagnostics,Novel Medical Technologies,,,A5044129448,20,31,73,3542
+Aaron Phillips,aaron.phillips@ucalgary.ca,Associate,Human Mobility,,Regenerative Medicine,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,,A5022853965,30,65,156,3204
+Adam Kirton,adam.kirton@ahs.ca,Professor,Human Mobility,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5071624312,58,204,501,12763
+Alim Mitha,amitha@ucalgary.ca,Associate,,,Regenerative Medicine,,,Novel Medical Technologies,,,A5106745430,18,27,70,843
+Amir Sanati Nezhad,amir.sanatinezhad@ucalgary.ca,Professor,Human Mobility,,Regenerative Medicine,,Precision Biodiagnostics,Novel Medical Technologies,,,a5080888159,47,112,175,6951
+Anders Nygren,nygren@ucalgary.ca,Professor,,,,Health Monitoring and Management,,Novel Medical Technologies,,Full-time,a5074500983,35,77,148,3925
+Anne Benneker,anne.benneker@ucalgary.ca,Associate,,,,,,Novel Medical Technologies,,,A5064787715,12,13,42,512
+Arindom Sen,asen@ucalgary.ca,Professor,,,Regenerative Medicine,,Precision Biodiagnostics,,,,A5031768116,26,55,84,2235
+Art Kuo,arthur.kuo@ucalgary.ca,Professor,Human Mobility,,,Health Monitoring and Management,,,,,A5086150799,57,90,152,16443
+Ashley Harris,ashley.harris2@ucalgary.ca,Associate,,,,,,Novel Medical Technologies,,,A5073479052,38,92,207,5689
+Benno Nigg,nigg@ucalgary.ca,Professor,Human Mobility,,,,,,,Emeritus/a,a5046562548,86,224,372,20870
+Bradley Goodyear,goodyear@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5020037190,38,91,167,5672
+Brent Edwards,wbedward@ucalgary.ca,Associate,Human Mobility,,Regenerative Medicine,Health Monitoring and Management,,,,Full-time,a5039979518,33,85,185,3560
+Bruce Pike,bruce.pike@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,a5076737365,97,309,551,38469
+Catherine Lebel,clebel@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5043095653,52,126,315,14022
+Chathura Kumaragamage,chathura.kumaragamag@ucalgary.ca,Assistant,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,a5056760825,8,7,32,321
+Christian Jacob,cjacob@ucalgary.ca,Professor,Human Mobility,,,Health Monitoring and Management,,Novel Medical Technologies,,,a5039674941,21,51,279,1832
+Colin Dalton,cdalton@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5022252020,18,24,62,1337
+Darren Stefanyshyn,stefanys@ucalgary.ca,Professor,Human Mobility,,,Health Monitoring and Management,,,,,A5060720250,45,107,220,7487
+Dave Hart,hartd@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,Regenerative Medicine,,,,,,A5061396807,67,345,616,16972
+David Wood,dhwood@ucalgary.ca,Professor,,,,Health Monitoring and Management,,,,,A5029048673,53,189,525,9683
+Derrick Rancourt,rancourt@ucalgary.ca,Professor,,,Regenerative Medicine,,,,,,A5017737743,39,97,171,6033
+Elena Di Martino,edimarti@ucalgary.ca,Professor,,Advanced Biomedical Imaging,Regenerative Medicine,,Precision Biodiagnostics,Novel Medical Technologies,,Full-time,A5037076571,27,54,154,3266
+Eli Kinney-Lang,eli.kinneylang@ucalgary.ca,Assistant,Human Mobility,,,,,,,Full-time,a5006789932,14,16,55,657
+Elise Fear,fear@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5026053568,34,86,215,6368
+Elizabeth Condliffe,elizabeth.condliffe@ucalgary.ca,Associate,Human Mobility,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,Full-time,A5082453086,11,12,37,809
+Emily Rogers-Bradley,emily.rogersbradley@ucalgary.ca,Assistant,Human Mobility,,,,,Novel Medical Technologies,,Full-time,a5114373244,0,0,1,0
+Ethan MacDonald,ethan.macdonald@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,,A5066211640,24,41,243,3958
+Giovanniantonio Natale,gnatale@ucalgary.ca,Associate,,,,,,Novel Medical Technologies,,,A5060238062,15,23,74,964
+Guido Van marle,vanmarle@ucalgary.ca,Professor,,,,Health Monitoring and Management,,,,,a5074081305,26,51,83,2524
+Hector De la Hoz Siegler,hdlsiegl@ucalgary.ca,Professor,,,,Health Monitoring and Management,,Novel Medical Technologies,,,a5085430572,15,16,42,636
+Henry Leung,leungh@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,Health Monitoring and Management,,Novel Medical Technologies,,,A5061884304,58,313,728,15258
+Holly Sparks,holly.sparks@ucalgary.,Assistant,Human Mobility,,Regenerative Medicine,,Precision Biodiagnostics,Novel Medical Technologies,,,a5083737761,15,20,54,847
+Ian Gates,idgates@ucalgary.ca,Professor,,,,,,Novel Medical Technologies,,,A5024153751,49,198,386,9884
+James A. White,jawhit@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,Health Monitoring and Management,Precision Biodiagnostics,,,,A5070858953,36,113,343,7926
+Jane Shearer,jshearer@ucalgary.ca,Professor,,,,,,Novel Medical Technologies,,,A5036827440,42,105,201,5907
+Janet Ronsky,jlronsky@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,Regenerative Medicine,Health Monitoring and Management,,,,,A5059205436,30,58,184,3164
+Jeff Biernaskie,jabierna@ucalgary.ca,Professor,,,Regenerative Medicine,,Precision Biodiagnostics,,,,A5084242333,41,80,180,8417
+Jeff Dunn,dunnj@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5101873040,41,115,216,5942
+Jeroen De Buck,jdebuck@ucalgary.ca,Professor,,,,,Precision Biodiagnostics,,,Adjunct,A5058471690,43,98,187,5592
+John Bertram,jbertram@ucalgary.ca,Professor,Human Mobility,,,,,,,Full-time,A5012993605,44,90,160,7794
+Joon Lee,joonwu.lee@ucalgary.ca,Associate,,,,Health Monitoring and Management,,,,,A5100610130,50,147,553,9966
+Julio Garcia Flores,julio.garciaflores@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,,a5090533744,30,49,128,2844
+Junho Park,junho.park@ucalgary.ca,Assistant,Human Mobility,,,Health Monitoring and Management,,Novel Medical Technologies,,Full-time,A5109754104,0,0,2,0
+Justin MacCallum,justin.maccallum@ucalgary.ca,Associate,,,,,Precision Biodiagnostics,Novel Medical Technologies,,,A5027760942,28,36,90,5039
+Kangsoo Kim,kangsoo.kim@ucalgary.ca,Assistant,Human Mobility,,,Health Monitoring and Management,,Novel Medical Technologies,,,A5022774858,23,56,210,2048
+Kartikeya Murari,kmurari@ucalgary.ca,Professor,,Advanced Biomedical Imaging,Regenerative Medicine,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,Full-time,A5007942194,22,41,115,1694
+Keekyoung Kim,keekyoung.kim@ucalgary.ca,Associate,,,Regenerative Medicine,,Precision Biodiagnostics,Novel Medical Technologies,,Full-time,A5090097404,36,61,117,7235
+Koren Roach,koren.roach@ucalgary.ca,Assistant,Human Mobility,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,Full-time,A5037667720,10,10,25,310
+Laura Curiel,laura.curiel@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,Full-time,A5023922905,20,37,113,1920
+LePing Li,leping.li@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,,,,,,,A5036061060,23,36,84,1960
+Leigh Gabel,leigh.gabel@ucalgary.ca,Assistant,Human Mobility,Advanced Biomedical Imaging,,,,,,,A5047972805,15,20,48,1030
+Li Fang (Jack) Chu,lifangjack.chu@ucalgary.ca,Assistant,,,Regenerative Medicine,,,,,,A5112938412,2,1,15,24
+Lora Oehlberg,lora.oehlberg@ucalgary.ca,Associate,,,,Health Monitoring and Management,,,,,A5089895616,21,37,94,1739
+Marc Lebel ,rmlebel@ucalgary,Assistant,,Advanced Biomedical Imaging,,,,,,,a5069179389,34,46,68,2788
+Marc Poulin,poulin@ucalgary.ca,Professor,Human Mobility,,Regenerative Medicine,Health Monitoring and Management,Precision Biodiagnostics,,,,A5080815644,48,101,194,6925
+Mariana Bento,mariana.pinheirobent@ucalgary.ca,Assistant,,Advanced Biomedical Imaging,,,,,,Full-time,A5083770219,11,11,67,636
+Mark Ungrin,mdungrin@ucalgary.ca,Associate,,,Regenerative Medicine,,,Novel Medical Technologies,,,A5037393069,23,33,63,2563
+May Choi,may.choi@ucalgary.ca,Associate,,,,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,,A5035984700,22,43,150,1530
+Michael Kallos,mskallos@ucalgary.ca,Professor,,,Regenerative Medicine,,,,,Full-time,A5051453596,34,68,110,3473
+Naweed Syed,nisyed@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,a5057878529,47,122,181,7369
+Neil Duncan,duncan@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,Regenerative Medicine,,,,,,A5114377548,32,47,98,4098
+Nigel Shrive,ngshrive@ucalgary.ca,Professor,,,,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,Emeritus/a,A5024298870,53,189,368,8867
+Nils Daniel Forkert,nils.forkert@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,,,,A5040728822,40,135,389,6557
+Omar Boursalie,omar.boursalie@ucalgary.ca,Assistant,,,,Health Monitoring and Management,,Novel Medical Technologies,,Full-time,a5041781789,6,4,20,136
+Orly Yadid-Pecht,orly.yadid-pecht@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,Precision Biodiagnostics,,,,a5108639797,28,67,194,2757
+Paolo Federico,pfederic@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5007528691,28,63,139,3143
+Peter Goldsmith,pgoldsmi@ucalgary.ca,Associate,,,,,,Novel Medical Technologies,,,A5015249683,11,11,44,408
+Pierre Levan,pierre.levan@ucalgary.ca,Assistant,,Advanced Biomedical Imaging,,,,,,,A5006528993,34,59,110,4679
+Prism Schneider,psschnei@ucalgary.ca,Associate,Human Mobility,,,,,,,,A5068471682,20,38,121,1453
+Ranita Manocha,ranita.manocha@ucalgary.ca,Associate,Human Mobility,,,Health Monitoring and Management,,Novel Medical Technologies,Clinical,,A5018297358,5,4,28,99
+Renaud Leguillette,rleguill@ucalgary.ca,Professor,,,,,,Novel Medical Technologies,,Full-time,a5084958126,22,39,100,2151
+Richa Pandey,richa.pandey@ucalgary.ca,Assistant,Human Mobility,,,,Precision Biodiagnostics,Novel Medical Technologies,,Full-time,A5006914372,22,42,105,2653
+Richard Frayne,rfrayne@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,,,,,,,A5085398611,49,167,362,14844
+Rob Deardon,rob.deardon@ucalgary.ca,Professor,,,,Health Monitoring and Management,,,,,a5085398611,49,167,362,14844
+Roberto Carlos Sotero Diaz,roberto.soterodiaz@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,a5028898834,20,34,116,1868
+Roberto Medeiros de Souza,roberto.souza2@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,,,,a5034573437,1,0,2,1
+Roman Krawetz,rkrawetz@ucalgary.ca,Associate,Human Mobility,,Regenerative Medicine,,,,,,A5084465267,30,76,163,3045
+Salvatore Federico,salvatore.federico@ucalgary.ca,Professor,Human Mobility,,,,,,,Full-time,A5079262403,26,56,145,2056
+Samuel Pichardo,samuel.pichardo@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5010393109,18,37,141,1422
+Sarah Manske,smanske@ucalgary.ca,Associate,Human Mobility,Advanced Biomedical Imaging,,,,,,,A5059631071,23,39,121,1632
+Sayeh Bayat,sayeh.bayat@ucalgary.ca,Assistant,,,,Health Monitoring and Management,Precision Biodiagnostics,Novel Medical Technologies,,,A5079401945,9,7,45,241
+Signe Bray,slbray@ucalgary.ca,Associate,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5034557771,33,71,173,4809
+Simon Park,Sipark@ucalgary.ca,Professor,,,,Health Monitoring and Management,,Novel Medical Technologies,,,a5054400267,33,78,152,4682
+Steve Boyd,skboyd@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,,,,,Clinical,,A5036983792,59,175,381,37935
+Steven Greenway,scgreenw@ucalgary.ca,Associate,,,Regenerative Medicine,,Precision Biodiagnostics,,,,A5014472169,31,58,153,4292
+Svetlana Yanushkevich,syanshk@ucalgary.ca,Professor,,,,Health Monitoring and Management,,Novel Medical Technologies,,,A5085946799,20,57,281,1947
+Taisiya Sigaeva,tais.sigaeva@ucalgary.ca,Assistant,,Advanced Biomedical Imaging,Regenerative Medicine,,Precision Biodiagnostics,Novel Medical Technologies,,,a5031921944,9,9,36,301
+Tamara Bodnar,tamara.bodnar@ucalgary.ca,Assistant,,,,Health Monitoring and Management,,,,,A5010143483,15,21,50,708
+Tina Rinker,kdrinker@ucalgary.ca,Professor,,,,,Precision Biodiagnostics,Novel Medical Technologies,,Full-time,a5038711024,18,31,118,1495
+Viola Birss,birss@ucalgary.ca,Professor,,,,,Precision Biodiagnostics,Novel Medical Technologies,,,A5035378389,45,170,386,8842
+Walter Herzog,wherzog@ucalgary.ca,Professor,Human Mobility,Advanced Biomedical Imaging,Regenerative Medicine,,,Novel Medical Technologies,,,A5069322953,90,508,1251,30731
+Xiaofan Jin,xiaofan.jin@ucalgary.ca,Assistant,,,Regenerative Medicine,,,,,Full-time,A5026426411,10,10,36,491
+Yaoping Hu,huy@ucalgary.ca,Professor,,,,,,Novel Medical Technologies,,,A5034008514,13,16,125,952
+Yunyan Zhang,yunyzhan@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,,,,A5100752456,18,30,86,1180
+Yuriy Zinchenko,yzinchen@ucalgary.ca,Associate,,,,,,Novel Medical Technologies,,,A5028777464,11,13,33,421
+Zelma Kiss,zkiss@ucalgary.ca,Professor,,Advanced Biomedical Imaging,,,,Novel Medical Technologies,,,A5063029101,30,59,184,3688
+Maryam Badv,maryam.badv@ucalgary.ca,Assistant,,,,,,,,Full-time,a5031550242,17,19,34,1079
+Emma Farago,emma.farago@ucalgary.ca,Assistant,,,,,,,Teaching,Full-time,a5119173381,0,0,1,0
+Amin Komeili,amin.komeili@ucalgary.ca,Associate,,,,,,,,Full-time,a5030253755,13,17,68,795
+Miriam Nightingale,miriam.nightingale@ucalgary.ca,Assistant,,,,,,,Teaching,Full-time,a5030166838,5,3,12,72

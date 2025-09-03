@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WCVM_VetMic_works.py — single-file OpenAlex ETL for UCVM dashboard
+Biomed_works.py — single-file OpenAlex ETL for UCVM dashboard
 
 What this script does
 ---------------------
@@ -14,7 +14,7 @@ What this script does
 - Logs to both file and console so GitHub Actions shows useful details.
 
 Usage (as in your workflow):
-    python etl/WCVM_VetMic_works.py \
+    python etl/Biomed_works.py \
         --input data/roster_with_metrics.csv \
         --output data/openalex_all_authors_last5y_key_fields_dedup.csv
 
@@ -63,7 +63,7 @@ BACKOFF_BASE = float(os.getenv("OPENALEX_BACKOFF_BASE", "1.6"))
 TIMEOUT = int(os.getenv("OPENALEX_TIMEOUT", "30"))
 RETRIABLE_STATUS = {429, 500, 502, 503, 504}
 HEADERS = {
-    "User-Agent": f"WCVM_VetMic-ETL (mailto:{MAILTO})",
+    "User-Agent": f"Biomed-ETL (mailto:{MAILTO})",
     "Accept": "application/json",
 }
 

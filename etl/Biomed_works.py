@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Biomed_works.py — single-file OpenAlex ETL for UCVM dashboard
+Biomed_works.py — single-file OpenAlex ETL for Biomed dashboard
 
 What this script does
 ---------------------
@@ -43,7 +43,7 @@ from pandas import json_normalize
 # ----------------------------
 # CLI
 # ----------------------------
-parser = argparse.ArgumentParser(description="WCVM VetMic OpenAlex ETL (single-file)")
+parser = argparse.ArgumentParser(description="Biomed OpenAlex ETL (single-file)")
 parser.add_argument("--input", "-i", required=True, help="Path to input faculty roster CSV")
 parser.add_argument("--output", "-o", required=True, help="Path to deduplicated last-5-years output CSV")
 args = parser.parse_args()

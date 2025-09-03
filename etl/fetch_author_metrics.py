@@ -132,7 +132,7 @@ def normalize_author_id(author_id: str) -> str:
 
 def build_session(email: Optional[str]) -> requests.Session:
     session = requests.Session()
-    ua = "ucvm-metrics-script/1.2"
+    ua = "biomed-metrics-script/1.2"
     if email:
         ua += f" ({email})"
     session.headers.update({"User-Agent": ua})

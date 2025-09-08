@@ -112,20 +112,31 @@
 
     // ============ Normalization ============
     function normalizeRoster(){
-      // Normalize OpenAlexID, collect research groups and numeric metrics
-      rosterData.forEach(r => {
-        r.OpenAlexID = normalizeID(r.OpenAlexID);
-        r.Name = r.Name || '';
-        // combine RG1..RG4 into a single array for filtering
-        r._RGs = ['RG1','RG2','RG3','RG4']
-          .map(k => (r[k] || '').trim())
-          .filter(v => v);
-        r.H_index = toInt(r.H_index);
-        r.I10_index = toInt(r.I10_index);
-        r.Works_count = toInt(r.Works_count);
-        r.Total_citations = toInt(r.Total_citations);
-      });
-    }
+    rosterData.forEach(r => {
+    r.OpenAlexID = normalizeID(r.OpenAlexID);
+    r.Name = r.Name || '';
+
+    // Dynamically collect any RG* columns (RG1..RG6, or more in future)
+    const rgKeys = Object.keys(r).filter(k => /^RG\d+$/i.test(k));
+
+    // Support two schemas:
+    // (A) RG columns contain the GROUP NAME (e.g., "Human Mobility")
+    // (B) RG columns contain a membership flag (e.g., "member", "yes", "1")
+    // In case (B), we treat the *column header* as the group label unless you
+    // later rename columns to the actual group names.
+    r._RGs = rgKeys.map(k => {
+      const v = String(r[k] ?? '').trim();
+      if (!v) return '';                         // not a member / empty
+      const isFlag = /^(member|yes|true|1)$/i.test(v);
+      return isFlag ? k : v;                     // use header for flags, value for names
+    }).filter(Boolean);
+
+    r.H_index = toInt(r.H_index);
+    r.I10_index = toInt(r.I10_index);
+    r.Works_count = toInt(r.Works_count);
+    r.Total_citations = toInt(r.Total_citations);
+  });
+}
 
     function normalizePubs(){
       pubData.forEach(p => {

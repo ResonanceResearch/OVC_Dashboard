@@ -1,0 +1,19 @@
+[2025-09-25 06:52:50,072] INFO: Logging to data/logs/fetch_author_metrics_20250925_065250.log
+[2025-09-25 06:59:46,699] WARNING: HTTP 503 from https://api.openalex.org/authors/A5014472169; retrying (attempt 1/3)
+[2025-09-25 07:01:17,500] WARNING: HTTP 503 from https://api.openalex.org/authors/A5034008514; retrying (attempt 1/3)
+[2025-09-25 07:09:23,724] WARNING: HTTP 503 from https://api.openalex.org/authors/A5041781789; retrying (attempt 1/3)
+[2025-09-25 07:10:56,525] WARNING: HTTP 503 from https://api.openalex.org/authors/A5034557771; retrying (attempt 1/3)
+[2025-09-25 07:11:58,963] WARNING: HTTP 503 from https://api.openalex.org/authors/A5085946799; retrying (attempt 1/3)
+[2025-09-25 07:12:29,973] WARNING: HTTP 503 from https://api.openalex.org/authors/A5085946799; retrying (attempt 2/3)
+[2025-09-25 07:13:01,983] WARNING: HTTP 503 from https://api.openalex.org/authors/A5085946799; retrying (attempt 3/3)
+[2025-09-25 07:13:05,983] ERROR: Failed after 3 attempts: https://api.openalex.org/authors/A5085946799
+[2025-09-25 07:13:35,993] WARNING: HTTP 503 from https://api.openalex.org/authors/A5031921944; retrying (attempt 1/3)
+[2025-09-25 07:14:07,002] WARNING: HTTP 503 from https://api.openalex.org/authors/A5031921944; retrying (attempt 2/3)
+[2025-09-25 07:14:39,012] WARNING: HTTP 503 from https://api.openalex.org/authors/A5031921944; retrying (attempt 3/3)
+[2025-09-25 07:14:43,012] ERROR: Failed after 3 attempts: https://api.openalex.org/authors/A5031921944
+[2025-09-25 07:15:36,382] WARNING: HTTP 503 from https://api.openalex.org/authors/A5038711024; retrying (attempt 1/3)
+[2025-09-25 07:17:31,275] INFO: [diff] H_index: 2 rows changed; total delta = -30.0
+[2025-09-25 07:17:31,276] INFO: [diff] I10_index: 2 rows changed; total delta = -67.0
+[2025-09-25 07:17:31,276] INFO: [diff] Works_count: 3 rows changed; total delta = -316.0
+[2025-09-25 07:17:31,277] INFO: [diff] Total_citations: 12 rows changed; total delta = -2170.0
+[2025-09-25 07:17:31,280] INFO: [ok] Wrote: data/roster_with_metrics.csv

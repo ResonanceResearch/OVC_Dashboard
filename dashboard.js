@@ -374,20 +374,35 @@
     
     // ============ Normalization ============
     function normalizeRoster(){
-      // Normalize OpenAlexID, collect research groups and numeric metrics
       rosterData.forEach(r => {
         r.OpenAlexID = normalizeID(r.OpenAlexID);
         r.Name = r.Name || '';
-        // combine RG1..RG4 into a single array for filtering
-        r._RGs = ['RG1','RG2','RG3','RG4']
-          .map(k => (r[k] || '').trim())
-          .filter(v => v);
+    
+        // Dynamically collect any RG* columns (RG1..RGN)
+        const rgKeys = Object.keys(r).filter(k => /^RG\d+$/i.test(k));
+    
+        // Support two schemas:
+        // (A) RG columns contain the GROUP NAME (e.g., "Human Mobility")
+        // (B) RG columns contain a membership flag ("member", "yes", "true", "1")
+        // In case (B), use the *column header* (e.g., "RG3") as the group label,
+        // unless you later rename column headers to actual group names.
+        const groups = rgKeys.map(k => {
+          const v = String(r[k] ?? '').trim();
+          if (!v) return '';                  // empty / not a member
+          const isFlag = /^(member|yes|true|1)$/i.test(v);
+          return isFlag ? k : v;              // header for flags; value for names
+        }).filter(Boolean);
+    
+        // De-duplicate just in case
+        r._RGs = Array.from(new Set(groups));
+    
         r.H_index = toInt(r.H_index);
         r.I10_index = toInt(r.I10_index);
         r.Works_count = toInt(r.Works_count);
         r.Total_citations = toInt(r.Total_citations);
       });
     }
+
 
     function normalizePubsFor(arr){
       // Map cohort author OpenAlexID -> array of name tokens (first, middle, last pieces)

@@ -288,6 +288,39 @@
       return best || 'CAN';
     }
 
+    // Infer the cohort's "home" ROR from the current selection.
+    // We tally the FIRST institution ROR per cohort authorship (normalized in parseAuthorships)
+    // and return the most frequent one.
+    function computeHomeROR(contributingRoster, selectedPubs){
+      const cohortIDs = new Set(
+        (contributingRoster || []).map(r =>
+          String(r.OpenAlexID || '').replace(/^https?:\/\/openalex\.org\/authors\//i, '')
+        )
+      );
+      const tallies = new Map(); // ror -> count
+    
+      for (const p of (selectedPubs || [])) {
+        const a = parseAuthorships(p);                  // has a.instRor[], a.ids[]
+        const n = a.ids.length;
+        for (let i = 0; i < n; i++) {
+          const id  = a.ids[i];
+          const ror = (a.instRor[i] || '').trim();      // already stripped of https://ror.org/
+          if (!id || !ror) continue;
+          if (cohortIDs.has(id)) {
+            tallies.set(ror, (tallies.get(ror) || 0) + 1);
+          }
+        }
+      }
+    
+      let best = '', bestN = 0;
+      for (const [k, n] of tallies.entries()) {
+        if (n > bestN) { best = k; bestN = n; }
+      }
+      return best; // '' if nothing seen
+    }
+
+
+    
     function workKey(p){
       // prefer OpenAlex work id, else DOI, else normalized title
       const id = String(p.id || '').replace(/^https?:\/\/openalex\.org\//i,'').trim();
@@ -1220,115 +1253,162 @@ function buildAuthorTopicSets(contributingRoster, selectedPubs) {
     }
   }
 
-    function drawTopRORPartners(contributingRoster, selectedPubs) {
-      const container = document.getElementById('top-ror');
-      const meta = document.getElementById('ror-meta');
-      if (!container) return;
-    
-      const cohortIDs = new Set(
-        (contributingRoster || []).map(r =>
-          String(r.OpenAlexID || '').replace(/^https?:\/\/openalex\.org\/authors\//i,'')
-        )
-      );
-      if (!cohortIDs.size) {
-        container.innerHTML = '';
-        if (meta) meta.textContent = 'No selected cohort authors.';
-        return;
-      }
-    
-      // ror -> { name, country, n }
-      const tally = new Map();
-      let paperCredits = 0;
-    
-      for (const p of (selectedPubs || [])) {
-        const a = parseAuthorships(p);
-        const n = a.ids.length;
-        if (!n) continue;
-    
-        // For every cohort author on this paper…
-        for (let i = 0; i < n; i++) {
-          const isCohort = a.ids[i] && cohortIDs.has(a.ids[i]);
-          if (!isCohort) continue;
-    
-          const ownRor = a.instRor[i] || '';
-          const creditedThisCohort = new Set();
-    
-          // Credit all coauthors' institutions except:
-          // - cohort members
-          // - the same institution as the cohort author's own on this paper
-          for (let j = 0; j < n; j++) {
-            if (j === i) continue;
-            const coIsCohort = a.ids[j] && cohortIDs.has(a.ids[j]);
-            if (coIsCohort) continue;
-    
-            const ror = a.instRor[j] || '';
-            if (!ror) continue;
-            if (ownRor && ror === ownRor) continue;
-    
-            creditedThisCohort.add(ror);
-          }
-    
-          // Count each partner ROR at most once per cohort author per paper
-          if (creditedThisCohort.size) {
-            paperCredits++;
-            for (const ror of creditedThisCohort) {
-              const name = (a.instName[a.instRor.indexOf(ror)] || '').trim(); // best effort
-              const idx = a.instRor.findIndex(x => x === ror);
-              const country = (idx >= 0 ? a.instCountry3[idx] : '') || '';
-              const rec = tally.get(ror) || { name: name || ror, country, n: 0 };
-              // Keep best-known name/country if we see blank earlier
-              if (!rec.name && name) rec.name = name;
-              if (!rec.country && country) rec.country = country;
-              rec.n += 1;
-              tally.set(ror, rec);
-            }
-          }
+  function drawTopRORPartners(contributingRoster, selectedPubs) {
+    const container = document.getElementById('top-ror');
+    const meta = document.getElementById('ror-meta');
+    if (!container) return;
+  
+    // Build cohort OpenAlex ID set (normalized)
+    const cohortIDs = new Set(
+      (contributingRoster || []).map(r =>
+        String(r.OpenAlexID || '').replace(/^https?:\/\/openalex\.org\/authors\//i, '')
+      )
+    );
+    if (!cohortIDs.size) {
+      container.innerHTML = '';
+      if (meta) meta.textContent = 'No selected cohort authors.';
+      return;
+    }
+  
+    // --- NEW: infer the cohort's "home" ROR globally (mode across cohort authorships)
+    // Uses parseAuthorships() which already aligns and normalizes institution RORs.
+    const talliesHome = new Map(); // ror -> count
+    for (const p of (selectedPubs || [])) {
+      const a = parseAuthorships(p); // { ids, instRor, instName, instCountry3, ... }
+      const n = a.ids.length;
+      for (let i = 0; i < n; i++) {
+        const id = a.ids[i];
+        const ror = (a.instRor[i] || '').trim();
+        if (!id || !ror) continue;
+        if (cohortIDs.has(id)) {
+          talliesHome.set(ror, (talliesHome.get(ror) || 0) + 1);
         }
       }
-    
-      const rows = Array.from(tally.entries())
-        .map(([ror, rec]) => ({ ror, name: rec.name || ror, country: rec.country || '', n: rec.n }))
-        .sort((a,b) => b.n - a.n)
-        .slice(0, 12);
-    
-      container.innerHTML = '';
-      if (!rows.length) {
-        if (meta) meta.textContent = 'No partner institutions found (after excluding cohort authors’ own institutions).';
-        return;
-      }
-    
-      const yLabels = rows.map(r => r.name);
-      const xVals = rows.map(r => r.n);
-      const hover = rows.map(r => `${r.name}<br>ROR: ${r.ror}${r.country ? `<br>Country: ${r.country}` : ''}<br>Papers: ${r.n}`);
-    
-      // Simple palette by country (grouping by first occurrence)
-      const countries = Array.from(new Set(rows.map(r => r.country)));
-      const palette = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf'];
-      const colorOf = (c) => palette[countries.indexOf(c) % palette.length];
-      const barColors = rows.map(r => colorOf(r.country));
-    
-      const trace = {
-        type: 'bar',
-        orientation: 'h',
-        x: xVals,
-        y: yLabels,
-        hovertext: hover,
-        hovertemplate: '%{hovertext}<extra></extra>',
-        marker: { color: barColors }
-      };
-    
-      const layout = {
-        margin: { t: 18, r: 10, b: 40, l: 160 },
-        height: 320,
-        xaxis: { title: 'Papers (unique partner credit)' },
-        yaxis: { automargin: true },
-        showlegend: false
-      };
-    
-      Plotly.newPlot(container, [trace], layout, { responsive: true });
-    
-      if (meta) meta.textContent = `Showing top ${rows.length} partner institutions by ROR (excluding cohort authors’ own institutions on each paper). Partner credits counted on ${paperCredits} papers in current selection.`;
     }
+    let homeROR = '';
+    {
+      let bestN = 0;
+      for (const [k, n] of talliesHome.entries()) {
+        if (n > bestN) { homeROR = k; bestN = n; }
+      }
+    }
+    // --- END NEW
+  
+    // Tally partner credits: unique partner ROR per cohort author per paper.
+    const tally = new Map(); // ror -> { name, country, n }
+    let paperCredits = 0;
+  
+    for (const p of (selectedPubs || [])) {
+      const a = parseAuthorships(p); // aligned arrays
+      const n = a.ids.length;
+      if (!n) continue;
+  
+      // Track which partner RORs we credited for this paper across all cohort authors
+      const creditedThisCohort = new Set();
+  
+      // For every cohort author on this paper…
+      for (let i = 0; i < n; i++) {
+        const id = a.ids[i];
+        if (!cohortIDs.has(id)) continue;
+  
+        // Cohort author's "own" institution ROR on this paper (first inst per authorship)
+        const ownRor = (a.instRor[i] || '').trim();
+  
+        // Scan all coauthors' first-institution RORs
+        for (let j = 0; j < n; j++) {
+          if (j === i) continue; // skip self
+          const ror = (a.instRor[j] || '').trim();
+          if (!ror) continue;
+  
+          // If we know the cohort author's own ROR, skip that (existing rule)
+          if (ownRor && ror === ownRor) continue;
+  
+          // --- NEW: always skip the inferred cohort-wide home ROR (even if ownRor was missing)
+          if (homeROR && ror === homeROR) continue;
+  
+          creditedThisCohort.add(ror);
+        }
+      }
+  
+      // Credit each unique partner ROR at most once per paper (across all cohort authors)
+      if (creditedThisCohort.size) {
+        paperCredits++;
+        for (const ror of creditedThisCohort) {
+          const idx = a.instRor.findIndex(x => x === ror);
+          const name = (idx >= 0 ? a.instName[idx] : '') || '';
+          const country = (idx >= 0 ? a.instCountry3[idx] : '') || '';
+          const rec = tally.get(ror) || { name: name || ror, country, n: 0 };
+          if (!rec.name && name) rec.name = name;         // fill missing metadata if seen later
+          if (!rec.country && country) rec.country = country;
+          rec.n += 1;
+          tally.set(ror, rec);
+        }
+      }
+    }
+  
+    // Build rows, exclude the home ROR again as a safety net
+    let rows = Array.from(tally.entries())
+      .filter(([ror]) => !homeROR || ror !== homeROR) // NEW safety filter
+      .map(([ror, rec]) => ({
+        ror,
+        name: rec.name || ror,
+        country: rec.country || '',
+        n: rec.n
+      }))
+      .sort((a, b) => b.n - a.n)
+      .slice(0, 12);
+  
+    container.innerHTML = '';
+    if (!rows.length) {
+      if (meta) meta.textContent =
+        'No partner institutions found (after excluding cohort authors’ own institutions and cohort home institution).';
+      return;
+    }
+  
+    // Plotly horizontal bar
+    const yLabels = rows.map(r => r.name);
+    const xVals = rows.map(r => r.n);
+  
+    const hover = rows.map(r => {
+      let s = `${r.name}<br>ROR: ${r.ror}`;
+      if (r.country) s += `<br>Country: ${r.country}`;
+      s += `<br>Papers: ${r.n}`;
+      return s;
+    });
+  
+    // Simple palette by country (stable mapping by first occurrence)
+    const countries = Array.from(new Set(rows.map(r => r.country)));
+    const palette = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf'];
+    const colorOf = (c) => palette[countries.indexOf(c) % palette.length];
+    const barColors = rows.map(r => colorOf(r.country));
+  
+    const trace = {
+      type: 'bar',
+      orientation: 'h',
+      x: xVals,
+      y: yLabels,
+      hovertext: hover,
+      hovertemplate: '%{hovertext}<extra></extra>',
+      marker: { color: barColors }
+    };
+  
+    const layout = {
+      margin: { t: 18, r: 10, b: 40, l: 160 },
+      height: 320,
+      xaxis: { title: 'Papers (unique partner credit)' },
+      yaxis: { automargin: true },
+      showlegend: false
+    };
+  
+    Plotly.newPlot(container, [trace], layout, { responsive: true });
+  
+    if (meta) {
+      const topK = rows.length;
+      const excl = homeROR ? ' (excluding cohort home institution)' : '';
+      meta.textContent =
+        `Showing top ${topK} partner RORs${excl}; credits counted on ${paperCredits} papers in current selection.`;
+    }
+  }
 
 
     // ============ Rendering ============

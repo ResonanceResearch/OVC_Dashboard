@@ -1212,7 +1212,7 @@ function buildAuthorTopicSets(contributingRoster, selectedPubs) {
         x: pts.map(p => p.x),
         y: pts.map(p => p.y),
         text: pts.map(p => p.name),
-        hovertemplate: '%{text}<extra></extra>',
+        hovertemplate: '%{text}<br>x: %{x:.2f}<br>y: %{y:.2f}<extra></extra>',
         marker: {
           size: 12,                  // <-- bigger dots
           color: colorOf(g),

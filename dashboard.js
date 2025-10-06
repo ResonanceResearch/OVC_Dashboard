@@ -1239,25 +1239,30 @@ function buildAuthorTopicSets(contributingRoster, selectedPubs) {
       };
     });
     const layout = {
-      margin: { t: 20, r: 10, b: 60, l: 50 },   // a bit more bottom space
+      margin: { t: 20, r: 10, b: 60, l: 50 },
       height: 320,
       legend: {
         orientation: 'h',
         x: 0, xanchor: 'left',
-        y: 1.12, yanchor: 'bottom'              // put legend above the plot
+        y: 1.12, yanchor: 'bottom'
       },
       xaxis: {
         zeroline: false,
         title: 'PC1 (from distances)',
         automargin: true,
-        title_standoff: 10                       // extra gap from tick labels
+        title_standoff: 10
       },
       yaxis: {
         zeroline: false,
         title: 'PC2 (from distances)',
         automargin: true
-      }
+      },
+      // ✅ ensure hover compares both axes / nearest point only
+      hovermode: 'closest',
+      hoverdistance: -1,     // nearest only
+      spikedistance: -1
     };
+
   
     Plotly.newPlot(container, traces, layout, { responsive: true });
   
